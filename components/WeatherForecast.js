@@ -8,7 +8,7 @@ const WeatherForecast = () => {
 		</View>
 	);
 };
-
+// Styles
 const styles = StyleSheet.create({
 	section: {
 		display: 'none',

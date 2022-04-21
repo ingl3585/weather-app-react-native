@@ -8,7 +8,7 @@ const Header = () => {
 		</View>
 	);
 };
-
+// Styles
 const styles = StyleSheet.create({
 	header: {
 		height: 75,

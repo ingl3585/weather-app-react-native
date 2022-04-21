@@ -8,7 +8,7 @@ const Footer = () => {
 		</View>
 	);
 };
-
+// Styles
 const styles = StyleSheet.create({
 	footer: {
 		display: 'none',
