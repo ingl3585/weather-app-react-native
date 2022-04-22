@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
-const WeatherForecast = () => {
+const WeatherForecast = ({ forecastWeatherData }) => {
 	return (
 		<View style={styles.section}>
 			<Text style={styles.text}>Weather Forecast</Text>
@@ -11,14 +11,13 @@ const WeatherForecast = () => {
 // Styles
 const styles = StyleSheet.create({
 	section: {
-		display: 'none',
-		// height: 200,
-		// display: 'flex',
-		// alignItems: 'center',
-		// justifyContent: 'center',
+		height: 225,
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
 	},
 	text: {
-		color: 'white',
+		color: '#405C63',
 		fontSize: 25,
 		textAlign: 'center',
 	},
