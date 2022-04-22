@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, StatusBar } from 'react-native';
 import Header from './components/Header';
 import CurrentWeather from './components/CurrentWeather';
 import WeatherForecast from './components/WeatherForecast';
@@ -69,14 +69,17 @@ const App = () => {
 	};
 	if (currentWeatherData && forecastWeatherData) {
 		return (
-			<View style={styles.container}>
-				<Header currentWeatherData={currentWeatherData} />
-				<CurrentWeather
-					currentWeatherData={currentWeatherData}
-					capitalizeDescription={capitalizeDescription}
-				/>
-				<WeatherForecast forecastWeatherData={forecastWeatherData} />
-			</View>
+			<>
+				<StatusBar barStyle='dark-content' translucent={true} />
+				<View style={styles.container}>
+					<Header currentWeatherData={currentWeatherData} />
+					<CurrentWeather
+						currentWeatherData={currentWeatherData}
+						capitalizeDescription={capitalizeDescription}
+					/>
+					<WeatherForecast forecastWeatherData={forecastWeatherData} />
+				</View>
+			</>
 		);
 	} else {
 		return null;

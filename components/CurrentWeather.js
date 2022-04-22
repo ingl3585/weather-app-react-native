@@ -1,19 +1,34 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Image } from 'react-native';
+import { Feather } from '@expo/vector-icons';
 
 const CurrentWeather = ({ currentWeatherData, capitalizeDescription }) => {
+	// Weather Icon Url
+	const weatherIcon = currentWeatherData.weather.icon;
+	console.log(weatherIcon);
+	const weatherIconUrl = `https://www.weatherbit.io/static/img/icons/${weatherIcon}.png`;
 	// Render Current Weather Data or Null
 	if (currentWeatherData) {
 		return (
-			<View style={styles.topSection}>
-				<View>
-					<Text style={styles.text}>Icon</Text>
-					<Text style={styles.text}>{capitalizeDescription()}</Text>
-					<Text style={styles.text}>{currentWeatherData.temp}°F</Text>
+			<View style={styles.container}>
+				<Image style={styles.weatherIcon} source={{ uri: weatherIconUrl }} />
+				<View style={styles.weatherInfo}>
+					<Text style={styles.weatherDescription}>
+						{capitalizeDescription()}
+					</Text>
+					<Text style={styles.weatherTemperature}>
+						{currentWeatherData.temp}°F
+					</Text>
 				</View>
 				<View style={styles.extraWeatherInfo}>
-					<Text>{currentWeatherData.wind_spd} mph</Text>
-					<Text>{currentWeatherData.rh}%</Text>
+					<Feather name='wind' size={25} color='black' />
+					<Text style={styles.extraWeatherInfoText}>
+						{currentWeatherData.wind_spd} mph
+					</Text>
+					<Feather name='droplet' size={25} color='black' />
+					<Text style={styles.extraWeatherInfoText}>
+						{currentWeatherData.rh}%
+					</Text>
 				</View>
 			</View>
 		);
@@ -23,15 +38,39 @@ const CurrentWeather = ({ currentWeatherData, capitalizeDescription }) => {
 };
 // Styles
 const styles = StyleSheet.create({
-	topSection: {
-		flex: 0.8,
+	container: {
+		flex: 1,
 		display: 'flex',
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
+	weatherIcon: {
+		height: 200,
+		width: 200,
+	},
+	weatherInfo: {
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+		marginTop: 30,
+	},
+	weatherDescription: {
+		fontSize: 20,
+	},
+	weatherTemperature: {
+		fontSize: 50,
+	},
 	extraWeatherInfo: {
 		display: 'flex',
 		flexDirection: 'row',
+		justifyContent: 'center',
+		alignItems: 'center',
+		marginTop: 15,
+	},
+	extraWeatherInfoText: {
+		fontSize: 14,
+		marginLeft: 7.5,
+		marginRight: 7.5,
 	},
 	text: {
 		color: '#405C63',

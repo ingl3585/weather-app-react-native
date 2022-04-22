@@ -1,18 +1,19 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+import { Entypo, FontAwesome } from '@expo/vector-icons';
 
 const Header = ({ currentWeatherData }) => {
 	if (currentWeatherData) {
 		return (
 			<View style={styles.header}>
 				<View style={styles.leftNav}>
-					<Text style={styles.text}>Pin</Text>
+					<Entypo name='location-pin' size={25} color='black' />
 					<Text style={styles.text}>
 						{currentWeatherData.city_name}, {currentWeatherData.state_code}
 					</Text>
 				</View>
 				<View style={styles.rightNav}>
-					<Text style={styles.text}>Calendar</Text>
+					<FontAwesome name='calendar' size={25} color='black' />
 				</View>
 			</View>
 		);
@@ -32,6 +33,7 @@ const styles = StyleSheet.create({
 	leftNav: {
 		display: 'flex',
 		flexDirection: 'row',
+		alignItems: 'center',
 		marginLeft: 25,
 	},
 	rightNav: {
@@ -41,7 +43,7 @@ const styles = StyleSheet.create({
 	},
 	text: {
 		color: '#405C63',
-		fontSize: 25,
+		fontSize: 20,
 	},
 });
 
