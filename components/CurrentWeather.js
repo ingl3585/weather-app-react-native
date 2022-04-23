@@ -1,17 +1,19 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
 import { Feather } from '@expo/vector-icons';
+import { SvgUri } from 'react-native-svg';
 
 const CurrentWeather = ({ currentWeatherData, capitalizeDescription }) => {
 	// Weather Icon Url
 	const weatherIcon = currentWeatherData.weather.icon;
+	const weatherIconUrl = `https://weather-app-react-native.s3.us-west-1.amazonaws.com/${weatherIcon}.svg`;
 	console.log(weatherIcon);
-	const weatherIconUrl = `https://www.weatherbit.io/static/img/icons/${weatherIcon}.png`;
+	console.log(weatherIconUrl);
 	// Render Current Weather Data or Null
 	if (currentWeatherData) {
 		return (
 			<View style={styles.container}>
-				<Image style={styles.weatherIcon} source={{ uri: weatherIconUrl }} />
+				<SvgUri style={styles.weatherIcon} uri={weatherIconUrl} />
 				<View style={styles.weatherInfo}>
 					<Text style={styles.weatherDescription}>
 						{capitalizeDescription()}

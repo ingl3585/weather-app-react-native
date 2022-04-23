@@ -15,7 +15,7 @@ const App = () => {
 	const [forecastWeatherData, setForecastWeatherData] = useState(null);
 	// Error Message State
 	const [error, setError] = useState(null);
-	// Current Weather API Call
+	// Weather API Call
 	const fetchWeatherData = async () => {
 		try {
 			let { status } = await Location.requestForegroundPermissionsAsync();
